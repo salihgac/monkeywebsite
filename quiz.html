@@ -162,15 +162,9 @@
                 popupModal.style.display = "none";
             }
 
-            // Monkey and Banana Rain Animation
-            let isScrolling;
+            const emojis = ["🐵", "🍌", "🌴", "🍍", "🎉", "🌟"];
     
-   const emojis = ["🐵", "🍌", "🌴", "🍍", "🎉", "🌟"];
-    let isScrolling;
-
-    window.addEventListener("scroll", function () {
-        clearTimeout(isScrolling);
-        
+    function createEmoji() {
         const monkeyRain = document.getElementById("monkeyRain");
         const emoji = document.createElement("div");
 
@@ -178,7 +172,7 @@
         emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
         emoji.className = "emoji";
         emoji.style.left = Math.random() * 100 + "vw"; // Random horizontal position
-        emoji.style.animationDuration = Math.random() * 2 + 3 + "s"; // Random fall duration
+        emoji.style.animationDuration = Math.random() * 5 + 5 + "s"; // Random fall duration (5s to 10s)
         emoji.style.fontSize = Math.random() * 20 + 20 + "px"; // Random font size
         monkeyRain.appendChild(emoji);
 
@@ -186,15 +180,10 @@
         emoji.addEventListener("animationend", function () {
             emoji.remove();
         });
+    }
 
-        // Set a timeout to run after scrolling ends
-        isScrolling = setTimeout(function() {
-            // Clear the contents of monkeyRain to stop the animation when scrolling stops
-            while (monkeyRain.firstChild) {
-                monkeyRain.removeChild(monkeyRain.firstChild);
-            }
-        }, 1000); // Adjust timeout duration as needed
-    });
+    // Create a new emoji every 500ms
+    setInterval(createEmoji, 500);
 });
     </script>
 </body>
