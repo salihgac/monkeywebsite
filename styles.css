@@ -223,7 +223,7 @@ label {
     z-index: 999; /* Ensure it appears above other elements */
 }
 
-.emoji {
+ .emoji {
         position: absolute;
         top: 0;
         animation-name: fall;
