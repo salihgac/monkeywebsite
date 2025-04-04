@@ -223,18 +223,16 @@ label {
     z-index: 999; /* Ensure it appears above other elements */
 }
 
-.monkey {
-    position: absolute;
-    top: -50px; /* Start above the viewport */
-    font-size: 2rem; /* Adjust size of the monkey emoji */
-    animation: fall linear infinite;
-}
+.emoji {
+        position: absolute;
+        top: 0;
+        animation-name: fall;
+        animation-timing-function: linear;
+    }
 
-@keyframes fall {
-    0% {
-        transform: translateY(0);
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
     }
-    100% {
-        transform: translateY(100vh); /* Fall to the bottom of the viewport */
-    }
-}
